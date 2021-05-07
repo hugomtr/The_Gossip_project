@@ -10,11 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_203253) do
+ActiveRecord::Schema.define(version: 2021_05_06_212455) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gossip_tag_attributions", force: :cascade do |t|
+    t.integer "gossip_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gossip_id"], name: "index_gossip_tag_attributions_on_gossip_id"
+    t.index ["tag_id"], name: "index_gossip_tag_attributions_on_tag_id"
+  end
+
+  create_table "gossips", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_gossips_on_user_id"
+  end
+
+  create_table "private_messages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
