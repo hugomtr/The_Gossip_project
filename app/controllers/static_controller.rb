@@ -7,19 +7,20 @@ class StaticController < ApplicationController
   end
 
   def accueil
+    @gossip_all = Gossip.all
   end
 
   def welcome
-
   end
 
   def welcome_post
-    puts "hello #{params['first_name']} #{params['last_name']}"
     redirect_to "/#{params['first_name']}"
-  end
-
-  def user
+    puts params
   end
     
-  
+  def user
+    @user_first_name = User.last.first_name
+  end
+
+
 end
