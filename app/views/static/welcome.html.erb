@@ -1,2 +1,30 @@
-<h1>Static#welcome</h1>
-<p>Find me in app/views/static/welcome.html.erb</p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Signin Template · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Custom styles for this template -->
+
+<section class="content-section mb-5 mt-5">
+    <div class="container text-center col-lg-4 mb-5">
+    <h1 class="display-4 mb-5">Connecte-toi</h1>
+        <form action="/" method="post">
+          <div class="form-group">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <input type="text" class="form-control" name="first_name" placeholder="Votre prénom"> 
+            <input type="text" name="last_name">
+            <input type="submit" name="Envoyer">
+          </div>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
