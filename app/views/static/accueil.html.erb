@@ -38,22 +38,33 @@
     <div class="container">
         <h1 class="text-center">GOSSIP PROJECT</h1>
         <p class="display-6 text-center">bitcher à l'abri des regards </p>
+        <h3 class="display-6 text-center">Hello <%= @user_first_name %> !</p>
     </div>
 </div>
 
 
 <!-- Content Gossip-->
-<div class="container">
+<div class="container-fluid mt-5">
     <div class="row">
-        <% @gossip_all.each do |gossips|%>
-            voici le titre du gossip <%= gossips.title%> <br>
-            voici le contenu du gossip <%= gossips.content%> <br>
+      <% @gossip_all.each do |gossips|%>
+        <div class="card mb-5" style="width: 20rem; margin: auto;">
+          <div class="card-body">
+            <h5 class="card-title"><%= gossips.title%></h5>
+            <p class="card-text">
+              <%= gossips.content%>
+            </p>
+            <small class=""><%= User.where(id:gossips).map{|u| u.first_name}.join %></small>
             <br>
-            
-        <% end %>    
-        
+            <small class="text-muted"><%= gossips.created_at%></small>
+            <br>
+            <button type="button" class="btn btn-sm btn-outline-info mt-3"><%= link_to "clique ici", 'user' %></button>
+          </div>
+        </div>
+        <% end %>   
     </div>
 </div>
+
+
 
 
     <!-- Optional JavaScript -->
