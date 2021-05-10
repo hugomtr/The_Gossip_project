@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'accueil', to: 'static#accueil'
+  get 'welcome', to: 'static#welcome'
   get 'team', to: 'static#team'
   get 'contact', to: 'static#contact'
   get 'team/index'
