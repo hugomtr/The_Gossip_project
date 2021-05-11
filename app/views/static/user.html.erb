@@ -36,7 +36,7 @@
 <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Hello <%= params[:user_first_name] %>!</h1>
-      <p><%= link_to "Retourne sur la liste des potins", "accueil" %></p>
+      <p><%= link_to "Retourne sur la liste des potins", "/../accueil" %></p>
     </div>
 </section>
 
@@ -55,7 +55,10 @@
                     <div class="col-lg-8 mb-4 mb-lg-0">
                         <div class="card h-100">
                             <h4 class="card-header">Ta vie sur le Gossip Project</h4>
-                            <div class="card-body"><p class="card-text">Le nombre de gossip que tu as écrit : <br>Le nombre de gossip que tu as modifié :</p></div>
+                            <div class="card-body"><p class="card-text">
+                            Le nombre de gossip que tu as écrit : <%= Gossip.where(user_id:User.where(first_name:"#{params[:user_first_name]}").map{|u| u.id}.join).map{|u| u.id}.length %>
+                            <!-- Cette partie sera à corriger car il peut y'avoir plusieurs users avec le meme prenom -->
+                            <br>Le nombre de gossip que tu as modifié :</p></div>
                         </div>
                     </div>
                 </div>

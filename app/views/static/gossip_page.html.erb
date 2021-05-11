@@ -1,1 +1,6 @@
 <h1>Voici le contenu du potin n° <%= params[:gossip] %>!</h1>
+Auteur : <%= User.where(id:Gossip.where(id: "#{params[:gossip]}").map{|u| u.user_id}.join).map{|u| u.first_name}.join %>
+<br>
+Title: <%= Gossip.where(id: "#{params[:gossip]}").map{|u| u.title}.join%>
+<br>
+Content : <%= Gossip.where(id: "#{params[:gossip]}").map{|u| u.content}.join%>
