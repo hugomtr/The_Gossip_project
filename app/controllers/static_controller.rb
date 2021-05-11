@@ -14,12 +14,13 @@ class StaticController < ApplicationController
   end
 
   def welcome_post
+    puts @user_first_name = params['first_name']
     redirect_to "/user/#{params['first_name']}"
     puts params
   end
     
   def user
-
+    @user = User.all
   end
   
   def gossip_page

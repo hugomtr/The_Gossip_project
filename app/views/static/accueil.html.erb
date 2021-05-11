@@ -38,7 +38,7 @@
     <div class="container">
         <h1 class="text-center">GOSSIP PROJECT</h1>
         <p class="display-6 text-center">bitcher à l'abri des regards </p>
-        <h3 class="display-6 text-center">Hello <%= @user_first_name %> !</p>
+        <h3 class="display-6 text-center">Hello !</p>
     </div>
 </div>
 
@@ -58,7 +58,7 @@
             <small class="text-muted"><%= gossips.created_at%></small>
             <br>
             <button type="button" class="btn btn-sm btn-outline-info mt-3"> <%= link_to "gossip_page" ,"gossip/#{gossips.id}" %> </button>
-            <button> <%= link_to "user_page" , "user/#{gossips.user.first_name}" %>
+            <button type="button" class="btn btn-sm btn-outline-info mt-3"> <%= link_to "user_page" , "user/#{gossips.user.first_name}" %>
             </button>
           </div>
         </div>

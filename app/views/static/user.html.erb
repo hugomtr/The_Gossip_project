@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,32 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-=======
-
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
->>>>>>> 14c0fe5bdafce8ceb640a87caaae5f68bcce185d
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <title>The Gossip Project</title>
     </head>
-
-<style>
-
-.avatar {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-</style>
 
 <!-- Barre de navigation -->
         <body>
@@ -56,20 +34,33 @@
 
 <!-- Jumbotron USER -->
 <section class="jumbotron text-center">
-<img src="avatar.png" alt="Avatar" class="avatar">
     <div class="container">
-<<<<<<< HEAD
       <h1 class="jumbotron-heading">Hello <%= params[:user_first_name] %>!</h1>
-      <p class="lead text-muted">Content du potin</p>
-      <p><%= link_to "Retourne sur la liste des potins", "/../accueil" %></p>
-=======
-      <h1 class="jumbotron-heading">Hello <%= @user_first_name %> !</h1>
-      <p class="lead text-muted">Content du potin</p>
       <p><%= link_to "Retourne sur la liste des potins", "accueil" %></p>
->>>>>>> 14c0fe5bdafce8ceb640a87caaae5f68bcce185d
     </div>
 </section>
 
+<!-- Content ID - USER -->
+<section class="py-5">
+            <div class="container">
+                <h1 class="mb-4">Quelques mots sur toi</h1>
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="card h-100">
+                            <h4 class="card-header">Ton compte</h4>
+                            <div class="card-body"><p class="card-text">Ton nom <%= User.where(first_name:params[:user_first_name]).map{|u| u.last_name}.join %>
+                            <br> Ton prénom :<%= params[:user_first_name]%> </p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <div class="card h-100">
+                            <h4 class="card-header">Ta vie sur le Gossip Project</h4>
+                            <div class="card-body"><p class="card-text">Le nombre de gossip que tu as écrit : <br>Le nombre de gossip que tu as modifié :</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
