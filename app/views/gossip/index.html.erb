@@ -1,11 +1,12 @@
-<h1>articles</h1>
+<h1>Gossip List</h1>
 
-<% @gossip_all.each do |gossips| %>
-  <h2> <%= gossips.title %> </h2>
+<% @gossips.each do |gossip| %>
+  <h2><%= gossip.title %> </h2> <br>
+  <h5><%= gossip.content %> </h5> <br>
   <p>
-  <h3><%=gossips.content%></h3>
-  <a href="<%= gossip_path(gossips.id) %>">Lire la Suite</a>
-  <p><%=gossips%></p>
+    <a href="<%= gossip_path(gossip.id) %>" >En savoir plus</a>
   </p>
+  
+<% end %>
 
-<%end%>
+

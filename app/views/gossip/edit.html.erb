@@ -1,15 +1,13 @@
-<h1>Editer le gossip</h1>
+<h1> Editer l'article </h1>
 
-<%= form_for @gossip do |f|%>
-  <div class="form-group">
-  <label>Titre</label>
+<%= form_for @gossip do |f| %>
+<div class="form_group">title: 
   <%= f.text_field :title %>
-  </div>
-  <div class="form-group">
-  <label>Content</label>
-  <%= f.text_area :content %>
-  </div>
-  <div class="form-group">
-  <button type="submit">Modifier l'article</button>
-  </div>
+</div>
+<div class="form_group">title: 
+  <%= f.text_field :content %>
+</div>  
+<div class="form-group">  
+  <%= f.submit %>
+</div>
 <% end %>

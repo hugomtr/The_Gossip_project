@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   #get '/gossip/:gossip', to: 'static#gossip_page'
   get 'accueil', to: 'static#accueil'
-  
   resources :gossip, except: [:create]
   post '/gossip', to: 'gossip#create', as: 'gossip_post' 
   get '/' , to: 'static#welcome'
