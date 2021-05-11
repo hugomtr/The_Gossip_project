@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_06_212455) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "zip_code"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_212455) do
   end
 
   create_table "gossip_tag_attributions", force: :cascade do |t|
-    t.integer "gossip_id"
-    t.integer "tag_id"
+    t.bigint "gossip_id"
+    t.bigint "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gossip_id"], name: "index_gossip_tag_attributions_on_gossip_id"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_212455) do
   create_table "gossips", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_gossips_on_user_id"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_212455) do
     t.text "description"
     t.string "email"
     t.integer "age"
-    t.integer "city_id"
+    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_users_on_city_id"
