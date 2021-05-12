@@ -13,6 +13,7 @@ City.destroy_all
 User.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
+Comment.destroy_all
 
 5.times do
   City.create(name: Faker::Address.city,zip_code: Faker::Address.zip_code)
@@ -28,4 +29,7 @@ end
 end
 10.times do
   Comment.create(content: Faker::Lorem.sentence(word_count: 10),user_id: User.all.sample.id,gossip_id: Gossip.all.sample.id)
+end
+10.times do
+  Tag.create(title: Faker::Lorem.sentence(word_count: 1))
 end

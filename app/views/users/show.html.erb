@@ -1,35 +1,45 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron text-center bg-dark text-light">
+  <p class="h3">
+    <strong>First name:</strong>
+    <%= @user.first_name %>
+  </p>
+  <p class="h4">
+    <strong>Last name:</strong>
+    <%= @user.last_name %>
+  </p>
+  <p class="h5">
+    <strong>Age:</strong>
+    <%= @user.age %>
+  </p>
+  <p class="h6">
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @user.description %>
+  </p> 
+  </div>
+  <!-- <%= link_to 'Edit', edit_user_path(@user) %> -->
+  <%= link_to 'Back', '/gossip' %>
+  <br>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+  <a href="<%=city_path(@user.city_id)%>"><%= City.find(@user.city_id).name %></a>
+  <br>
+    
+</body>
+</html>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
-
-<!-- <%= link_to 'Edit', edit_user_path(@user) %> -->
-<%= link_to 'Back', '/gossip' %>
-
-<br>
-
-<a href="<%=city_path(@user.city_id)%>">City of the user</a>
-<br>
-Live in: <%= City.find(@user.city_id).name %> 

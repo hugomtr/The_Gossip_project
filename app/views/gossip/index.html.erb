@@ -1,10 +1,38 @@
-<h1>Gossip List</h1>  
-<% @gossips.each do |gossip| %>   
-  <h2><%= gossip.title %> </h2> <br>   
-  <h5><%= gossip.content %> </h5> <br>   
-  <p>     
-  <a href="<%= gossip_path(gossip.id) %>" >En savoir plus</a>     
-  <a href="<%= edit_gossip_path(gossip.id) %>" class="btn btn-primary">Editer</a>     
-  <a href="<%= gossip_path(gossip.id) %>" class="btn btn-danger" data-confirm="Êtes-vous sûr ?" data-method="DELETE">Supprimer</a></p>   
-  <p>   <a href="<%= new_gossip_path%>" class="btn btn-success">Créer un potin</a> </p>  
-<% end %> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center bg-dark text-light">
+  <h1>Welcome at The Gossip Project</h1>
+  <p></p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+  <% @gossips.each do |gossip| %> 
+    <div class="col-sm-6 card-deck">
+    <div class="card mb-3" style="width: 20rem; text-align: center">
+      <div class="card-body">
+        <h5 class="card-title"><%= gossip.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">by :<%= User.find(gossip.user_id).first_name %></h6>
+            <p class="card-text"><%= gossip.content %></p>
+            <a href="<%= gossip_path(gossip.id) %>" class="card-link btn btn-dark">Show</a>
+            <a href="<%= edit_gossip_path(gossip.id) %>" class="card-link btn btn-primary">Edit</a>
+            <a href="<%= gossip_path(gossip.id) %>" data-confirm="Êtes-vous sûr ?" data-method="DELETE" class="card-link btn btn-danger" >Delete</a></p>   
+      </div>
+    </div>
+    </div>
+  <% end %> 
+  </div>
+  <div class="left_a" style="margin-right:10px;"><a href="<%= new_gossip_path%>" class ="btn btn-light">Créer un potin</a></div>
+  
+</div>
+

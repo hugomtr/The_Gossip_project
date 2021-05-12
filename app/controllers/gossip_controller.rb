@@ -12,6 +12,15 @@ class GossipController < ApplicationController
   end
 
   def create
+    @gossip = Gossip.new(gossip_params)
+    @gossip.update(user: User.all.sample)
+    respond_to do |format|
+      if @gossip.save
+        format.html { redirect_to '/gossip', notice: "Gossip was successfully created." }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -21,18 +30,13 @@ class GossipController < ApplicationController
   def update
     @gossip = Gossip.find(params[:id])
     respond_to do |f|
-      if @gossip.update(post_params)
+      if @gossip.update(gossip_params)
         f.html { redirect_to '/gossip', notice: "Gossip was successfully updated." }
       else
         f.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
-  
-  def create
-    redirect_to '/gossip'
-  end 
-   
   
   def destroy
     @gossip = Gossip.find(params[:id])
@@ -41,7 +45,7 @@ class GossipController < ApplicationController
   end
   
   private
-  def post_params
+  def gossip_params
     params.require(:gossip).permit(:title, :content)
   end
 

@@ -1,18 +1,41 @@
-<h1> <%= @gossip.title %></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<p> <%= @gossip.content %> </p>
+<div class="jumbotron text-center bg-dark text-light">
+  <h1><%= @gossip.title %></h1>
+  <p><%= @gossip.content %></p> 
+  <a class="btn btn-primary" href="<%=gossip_index_path%>" >Back</a>
+  <a class="btn btn-primary" href="<%=user_path(@gossip.user_id)%>" ><%= User.find(@gossip.user_id).first_name %></a>
+  <a class="btn btn-primary" href="<%=city_path(User.find(@gossip.user_id).city_id) %>" ><%= City.find(User.find(@gossip.user_id).city_id).name %></a>
 
-<a href="<%=gossip_index_path%>"> Retour à la liste des potins</a>
+</div>
+  
+<div class="container">
+  <div class="row">
+  <% Comment.where(gossip_id: @gossip.id ).each do |comment| %>    
+  <div class="col-sm-6 card-deck">
+    <div class="card mb-3" style="width: 20rem; text-align: center">
+      <div class="card-body">
+        <h5 class="card-title"><%= User.find(comment.user_id).first_name %></h5>
+            <p class="card-text"><%= comment.content %></p>
+            <a href="<%=edit_comment_path(comment.id) %>" class="btn btn-primary" >Edit</a> 
+            <a href="<%= comment_path(comment.id) %>" class="btn btn-danger" data-confirm="Êtes-vous sûr ?" data-method="DELETE">Delete</a></p>   
+      </div>
+    </div>
+    </div>
+  <% end %> 
+  </div>
+</div>
 
-<p> 
-<a href="<%=user_path(@gossip.user_id)%>">L'Auteur</a>
-<%= User.find(@gossip.user_id).first_name %> 
-</p>
+<%= link_to 'New Comment', new_comment_path %>
 
-<p> 
-<a href="<%=city_path(User.find(@gossip.user_id).city_id) %>">La ville de l'auteur</a> 
-<%= City.find(User.find(@gossip.user_id).city_id).name %> 
-</p>
-<p>
-<%= link_to 'Edit', edit_gossip_path(@gossip.id) %>
-</p>
+

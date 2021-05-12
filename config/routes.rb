@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :users, except: [:destroy]
   #get '/gossip/:gossip', to: 'static#gossip_page'
   resources :gossip, except: [:create]
