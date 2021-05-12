@@ -3,13 +3,13 @@
 one:
   first_name: MyString
   last_name: MyString
-  description: MyText
-  email: MyString
   age: 1
+  email: MyString
+  description: MyText
 
 two:
   first_name: MyString
   last_name: MyString
-  description: MyText
-  email: MyString
   age: 1
+  email: MyString
+  description: MyText

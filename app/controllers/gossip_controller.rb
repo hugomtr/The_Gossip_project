@@ -20,22 +20,29 @@ class GossipController < ApplicationController
 
   def update
     @gossip = Gossip.find(params[:id])
-    @gossip.update(post_params)
-    redirect_to '/gossip'
+    respond_to do |f|
+      if @gossip.update(post_params)
+        f.html { redirect_to '/gossip', notice: "Gossip was successfully updated." }
+      else
+        f.html { render :edit, status: :unprocessable_entity }
+      end
+    end
   end
-
+  
   def create
-    @gossip = Gossip.create(post_params,user:User.first)
     redirect_to '/gossip'
-  end  
+  end 
+   
   
   def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to '/gossip'
   end
+  
   private
-
   def post_params
     params.require(:gossip).permit(:title, :content)
-
   end
 
 

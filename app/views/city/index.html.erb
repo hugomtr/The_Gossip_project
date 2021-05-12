@@ -1,0 +1,10 @@
+<h1>city List</h1>
+
+<% @cities.each do |city| %>
+  <h2><%= city.name %> </h2> <br>
+  <h5><%= city.zip_code %> </h5> <br>
+  <p>
+    <a href="<%= city_path(city.id) %>" >En savoir plus</a>
+  </p>
+  
+<% end %>

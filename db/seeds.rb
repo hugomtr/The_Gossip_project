@@ -14,15 +14,18 @@ User.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
 
-10.times do
+5.times do
   City.create(name: Faker::Address.city,zip_code: Faker::Address.zip_code)
 end
-10.times do
+8.times do
   Tag.create(title: Faker::Lorem.sentence(word_count: 1))
 end
-30.times do
+10.times do
   User.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name,description: Faker::Lorem.sentences(2).join,email: Faker::Internet.safe_email,age: Faker::Number.between(from: 1, to: 120),city_id: City.all.sample.id)
 end
-150.times do
+12.times do
   Gossip.create(title: Faker::Lorem.sentence(word_count: 3),content: Faker::Lorem.sentence(word_count: 10),user_id: User.all.sample.id)
+end
+10.times do
+  Comment.create(content: Faker::Lorem.sentence(word_count: 10),user_id: User.all.sample.id,gossip_id: Gossip.all.sample.id)
 end
