@@ -66,4 +66,5 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:content, :gossip_id)
     end
+    
 end
