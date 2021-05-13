@@ -1,6 +1,19 @@
 <p id=”alert”><%= alert %></p>
-<h1>Login</h1>
-<%= form_tag sessions_path do |form| %>
+
+<!-- Formulaire de login -->
+<section class="content-section mb-5 mt-5">
+    <div class="container text-center col-lg-4 mb-5">
+    <p id=”alert”><%= alert %></p>
+    <h1 class="display-4 mb-5">Connecte-toi</h1>
+        <form action="/" method="post">
+            <div class="form-group">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input type="text" class="form-control" name="first_name" placeholder="Votre prénom"> 
+                <br>
+                <input type="text" class="form-control" name="last_name" placeholder="Votre nom"> 
+                <input class="btn btn-outline-info btn-lg mt-3 float-right" type="submit" name="envoyer">
+            </div>
+            <%= form_tag sessions_path do |form| %>
   <div class=”field”>
     <%= label_tag :email %>
     <%= text_field_tag :email %>
@@ -10,6 +23,8 @@
     <%= password_field_tag :password %>
   </div>
     <%= submit_tag "Submit" %>
-
-<% end %>
+        </form>
+    </div>
+    <% end %>
 <%= link_to "Sign Up", new_user_path%>
+</section>

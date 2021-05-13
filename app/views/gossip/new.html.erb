@@ -1,14 +1,44 @@
-<%= form_for @gossip, url: {action: "create"} do |f| %>
-  Auteur<br>
-  <div class="form_group">
-    <%= f.text_field :title %>
-  </div>
-  Gossip:
-  <div class="form_group">
-    <%= f.text_area :content %>
-  </div>
-  <div class="form_group">
-    <%= f.submit "Create" %>
-  </div>
-<% end %>
+<div class="container">
+            <div class="row">
+            <!-- Side widgets-->
+                <div class="col-md-4">
+                    <!-- Intro widget-->
+                    <div class="card my-4">
+                        <h5 class="card-header">Intro</h5>
+                        <div class="card-body">
+                          <p class="card-text"><a href="<%=gossip_index_path%>"> Revenir à la liste des potins</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Blog entries-->
+                <div class="col-md-8">
+                    <h1 class="my-4">Créer un potin</h1>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                        <%= form_for @gossip, url: {action: "create"} do |f| %>
+                        Auteur<br>
+                        <div class="form_group">
+                          <%= f.text_field :title %>
+                        </div>
+                        Gossip:
+                        <div class="form_group">
+                          <%= f.text_area :content %>
+                        </div>
+                        <div class="form_group">
+                          <%= f.submit "Create" %>
+                        </div>
+                      <% end %>
+                            <h2 class="card-title">
+                            <p class="card-text"></p>
+                            <p class="card-text"></p>
+                            <p class="card-text"></a></p>
+                        </div>
+                        </div>
+                </div>
+                
+            </div>
+        </div>
+
+  </div>

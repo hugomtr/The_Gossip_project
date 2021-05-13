@@ -1,19 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <title>City</title>
-</head>
-<div class="jumbotron text-center bg-dark text-light">
-  <h1>Name : <%= @city.name %></h1>
-  <p>Zip_code :<%= @city.zip_code %></p> 
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card my-4">
+        <h5 class="card-header">Intro</h5>
+          <div class="card-body">
+            <p class="card-text"><strong>Nom de la ville :</strong> <%= @city.name %>
+            <p class="card-text"><strong>Code postal :</strong> <%= @city.zip_code %>
+            <p class="card-text"><%= link_to 'Revenir à la liste', '/gossip' %>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <h1 class="my-4">Meilleurs potins</h1>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Titre du Gossip</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+              <p class="card-text">Nom de l'auteur</p>
+          </div>
+          <div class="card-footer text-muted">
+            Created at 
+          </div>
+      </div>
+
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item"><a class="page-link" href="#!">← Older</a></li>
+          <li class="page-item disabled"><a class="page-link" href="#!">Newer →</a></li>
+        </ul>
+      </div>
+    </div>
 </div>
-<body>
-<%= link_to 'Back', '/gossip' %>
-</body>
-</html>
