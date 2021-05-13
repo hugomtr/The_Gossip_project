@@ -13,7 +13,7 @@ class GossipController < ApplicationController
 
   def create
     @gossip = Gossip.new(gossip_params)
-    @gossip.update(user: User.all.sample)
+    @gossip.update(user: current_user)
     respond_to do |format|
       if @gossip.save
         format.html { redirect_to '/gossip', notice: "Gossip was successfully created." }

@@ -11,7 +11,7 @@
 <body>
 
 <div class="jumbotron text-center bg-dark text-light">
-  <h1>Welcome <%= params['first_name'] %> at The Gossip Project</h1>
+  <h1>Welcome <%= current_user.first_name %> at The Gossip Project</h1>
   <p></p> 
 </div>
   
@@ -34,6 +34,8 @@
   </div>
   <div class="left_a" style="margin-right:10px;"><a href="<%= new_gossip_path%>" class ="btn btn-light">Créer un potin</a></div>
   <a href="<%= session_path(session[:user_id]) %>" data-confirm="Êtes-vous sûr ?" data-method="DELETE" class="card-link btn btn-danger" >Disconnect</a></p>   
-
+  <% if current_user %>
+  Logged in as <%= current_user.email %>.
+<% end %>
 </div>
 
