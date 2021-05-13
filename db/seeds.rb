@@ -33,3 +33,6 @@ end
 10.times do
   Tag.create(title: Faker::Lorem.sentence(word_count: 1))
 end
+50.times do
+  Like.create(gossip_id: Gossip.all.sample.id, user_id: User.all.sample.id)
+end

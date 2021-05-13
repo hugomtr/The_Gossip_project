@@ -26,7 +26,10 @@
             <p class="card-text"><%= gossip.content %></p>
             <a href="<%= gossip_path(gossip.id) %>" class="card-link btn btn-dark">Show</a>
             <a href="<%= edit_gossip_path(gossip.id) %>" class="card-link btn btn-primary">Edit</a>
-            <a href="<%= gossip_path(gossip.id) %>" data-confirm="Êtes-vous sûr ?" data-method="DELETE" class="card-link btn btn-danger" >Delete</a></p>   
+            <a href="<%= gossip_path(gossip.id) %>" data-confirm="Êtes-vous sûr ?" data-method="DELETE" class="card-link btn btn-danger" >Delete</a></p> 
+            <br> <%=Like.where(gossip_id:gossip.id).length %>  
+            <%= button_to 'Like', gossip_likes_path(gossip), method: :post %>
+
       </div>
     </div>
     </div>
@@ -35,7 +38,8 @@
   <div class="left_a" style="margin-right:10px;"><a href="<%= new_gossip_path%>" class ="btn btn-light">Créer un potin</a></div>
   <a href="<%= session_path(session[:user_id]) %>" data-confirm="Êtes-vous sûr ?" data-method="DELETE" class="card-link btn btn-danger" >Disconnect</a></p>   
   <% if current_user %>
-  Logged in as <%= current_user.email %>.
+  
 <% end %>
+Logged in as <%= current_user.email %>
 </div>
 

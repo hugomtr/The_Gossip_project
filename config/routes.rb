@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :comments, except: [:new]
@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :users, except: [:destroy]
   #get '/gossip/:gossip', to: 'static#gossip_page'
-  resources :gossip, except: [:create]
+  resources :gossip do
+    resources :likes 
+  end
+
+
   post '/gossip', to: 'gossip#create', as: 'gossip_post' 
   
   resources :city, only: [:index, :show]
