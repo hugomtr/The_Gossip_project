@@ -17,12 +17,12 @@
 <section class="content-section mb-5 mt-5">
     <div class="container text-center col-lg-4 mb-5">
     <h1 class="display-4 mb-5">Connecte-toi</h1>
-        <form action="/" method="post">
+        <form action="/sessions/new" method="post">
             <div class="form-group">
                 <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-                <input type="text" class="form-control" name="first_name" placeholder="Votre prénom"> 
+                <input type="text" class="form-control" name="email" placeholder="Votre email"> 
                 <br>
-                <input type="text" class="form-control" name="last_name" placeholder="Votre nom"> 
+                <input type="text" class="form-control" name="password" placeholder="Votre mdp"> 
                 <input class="btn btn-outline-info btn-lg mt-3 float-right" type="submit" name="envoyer">
             </div>
             

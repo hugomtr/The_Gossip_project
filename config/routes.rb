@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
+  
+  resources :sessions, only: [:new, :create, :destroy]
+
   resources :comments
+  
   resources :users, except: [:destroy]
   #get '/gossip/:gossip', to: 'static#gossip_page'
   resources :gossip, except: [:create]
   post '/gossip', to: 'gossip#create', as: 'gossip_post' 
-  
-  get 'accueil', to: 'static#accueil'
-  get '/' , to: 'static#welcome'
-  post '/', to: 'static#welcome_post'
-  get 'team', to: 'static#team'
-  get 'contact', to: 'static#contact'
-  get 'team/index'
   
   resources :city, only: [:index, :show]
 
