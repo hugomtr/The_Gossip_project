@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  add_flash_types :info, :error, :warning
+
+
 end

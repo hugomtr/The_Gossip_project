@@ -40,7 +40,11 @@ class GossipController < ApplicationController
   
   def destroy
     @gossip = Gossip.find(params[:id])
-    @gossip.destroy
+    if @gossip.user_id != current_user.id
+      flash[:errors] = "You can't destroy this gossip"
+    else
+      @gossip.destroy
+    end
     redirect_to '/gossip'
   end
   

@@ -25,7 +25,11 @@
           <h6 class="card-subtitle mb-2 text-muted">by :<%= User.find(gossip.user_id).first_name %></h6>
             <p class="card-text"><%= gossip.content %></p>
             <a href="<%= gossip_path(gossip.id) %>" class="card-link btn btn-dark">Show</a>
-            <a href="<%= edit_gossip_path(gossip.id) %>" class="card-link btn btn-primary">Edit</a>
+            <% if gossip.user_id == current_user.id %>
+              <a href="<%= edit_gossip_path(gossip.id) %>" class="card-link btn btn-primary">Edit</a>
+            <% else %>
+              <a href="<%= gossip_index_path %>" class="card-link btn btn-primary">Edit</a>
+            <% end %>
             <a href="<%= gossip_path(gossip.id) %>" data-confirm="Êtes-vous sûr ?" data-method="DELETE" class="card-link btn btn-danger" >Delete</a></p> 
             <br> <%=Like.where(gossip_id:gossip.id).length %>  
             <!-- <%= button_to 'Like', gossip_likes_path(gossip), method: :post %> -->
