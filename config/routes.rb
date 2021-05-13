@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :likes 
   end
 
+  get '/contact', to: 'static#contact' 
+  get '/team' , to: 'static#team'
 
   post '/gossip', to: 'gossip#create', as: 'gossip_post' 
   
