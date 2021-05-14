@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :sessions, only: [:new, :create, :destroy]
-
+  resources :sessions, only: [:create, :destroy]
+  
   resources :comments, except: [:new]
   get '/comments/new/:number', to: 'comments#new' , as: 'new_comment' 
   
@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :gossip do
     resources :likes 
   end
-
+  
+  root 'sessions#new'
 
   post '/gossip', to: 'gossip#create', as: 'gossip_post' 
   
