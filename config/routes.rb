@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :likes 
   end
   
-  root 'sessions#new'
+  root 'sessions#new', to: 'sessions#new', as: 'new_session'
 
   post '/gossip', to: 'gossip#create', as: 'gossip_post' 
   
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static#contact'
 
   get '/team', to: 'static#team'
+  
   #get '/user/:user_first_name', to: 'static#user', as: 'user'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
