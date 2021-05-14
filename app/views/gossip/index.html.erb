@@ -8,13 +8,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+    <%= yield %>
+</div>
+
 <body>
 
-<div class="jumbotron text-center bg-dark text-light">
-  <h1>Welcome <%= current_user.first_name %> at The Gossip Project</h1>
-  <p></p> 
-</div>
-  
 <div class="container">
   <div class="row">
   <% @gossips.each do |gossip| %> 

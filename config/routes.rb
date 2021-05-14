@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   
   resources :city, only: [:index, :show]
 
+  get '/contact', to: 'static#contact'
 
+  get '/team', to: 'static#team'
   #get '/user/:user_first_name', to: 'static#user', as: 'user'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

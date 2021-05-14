@@ -41,7 +41,7 @@ class GossipController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     if @gossip.user_id != current_user.id
-      flash[:errors] = "You can't destroy this gossip"
+      flash.now[:alert] = "Email or password is invalid"
     else
       @gossip.destroy
     end
